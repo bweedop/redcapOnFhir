@@ -15,6 +15,7 @@ function App(client) {
 App.prototype.fetchCurrentPatient = function() {
   var render = createRenderer("patient");
   render("Loading...");
+  console.log(this.client.user.read())
   return this.client.patient.read().then(render, render);
 };
 
@@ -27,7 +28,6 @@ App.prototype.fetchCurrentEncounter = function() {
 App.prototype.fetchCurrentUser = function() {
   var render = createRenderer("user");
   render("Loading...");
-  //return this.client.patient.read().then(render, render);
   return this.client.user.read().then(render, render);
 };
 
