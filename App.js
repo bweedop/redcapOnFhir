@@ -39,7 +39,8 @@ App.prototype.request = function(requestOptions, fhirOptions) {
 
 App.prototype.renderContext = function() {
   return Promise.all([
-    this.fetchCurrentPatient()
+    this.fetchCurrentPatient(),
+    this.request()
     //this.fetchCurrentUser(),
     //this.fetchCurrentEncounter()
   ]);
