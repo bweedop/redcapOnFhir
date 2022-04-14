@@ -11,14 +11,16 @@
         <script>
           var url = new URL(location.href);
           if (!url.searchParams.has("launch") || !url.searchParams.has("iss")) {
+            // This is intended to be a one-time nonce. In a real scenario this would be randomly generated.
             url.searchParams.set("launch", "A001");
+            // Change URL on the line below to the base URL for the FHIR endpoint. The app will load the server capability statement from this endpoint, which allows it to figure out where to authorize.
             url.searchParams.set("iss", "http://10.196.28.15:8443");
             document.body.innerHTML = '<a href="' + url.href + '">Click here to simulate EHR launch</a>';
           }
           else {
             FHIR.oauth2.authorize({
 
-              // The client_id that you should have obtained after registering a client at
+              // Change the line below to the client_id that you should have obtained after registering a client at
               // the EHR.
               clientId: "test-app",
 
