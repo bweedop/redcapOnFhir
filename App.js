@@ -27,8 +27,8 @@ App.prototype.fetchCurrentEncounter = function() {
 App.prototype.fetchCurrentUser = function() {
   var render = createRenderer("user");
   render("Loading...");
-  return this.client.patient.read().then(render, render);
-  //return this.client.user.read().then(render, render);
+  //return this.client.patient.read().then(render, render);
+  return this.client.user.read().then(render, render);
 };
 
 App.prototype.request = function(requestOptions, fhirOptions) {
